@@ -61,7 +61,8 @@ class MainKtTest {
             likes = like.copy(count = like.count + 141, canPublish = true)
         )
         WallService.add(post3)
-        val updatePost = post.copy(id=2,
+        val updatePost = post.copy(
+            id = 2,
             isFavorite = true, replyPostID = 2, replyOwnerID = 32,
             canEdit = true,
             text = "Перерыв 20 минут!", friendsOnly = true, postType = "suggest",
@@ -71,6 +72,7 @@ class MainKtTest {
         val result = WallService.update(updatePost)
         assertFalse(result)
     }
+
     @Test
     fun createComment() {
         val comment = Comment()
@@ -85,10 +87,12 @@ class MainKtTest {
         WallService.add(post2)
         val comment1 = comment.copy(
             text = "Ура! Идем обедать. ",
-            id = 1, fromId = 2, date = System.currentTimeMillis())
+            id = 1, fromId = 2, date = System.currentTimeMillis()
+        )
         // здесь код с вызовом функции, которая должна выкинуть PostNotFoundException
         WallService.createComment(2, comment1)
     }
+
     @Test(expected = PostNotFoundException::class)
     fun shouldThrow() {
         val comment = Comment()
@@ -103,7 +107,8 @@ class MainKtTest {
         WallService.add(post2)
         val comment1 = comment.copy(
             text = "Ура! Идем обедать. ",
-            id = 1, fromId = 2, date = System.currentTimeMillis())
+            id = 1, fromId = 2, date = System.currentTimeMillis()
+        )
         // здесь код с вызовом функции, которая должна выкинуть PostNotFoundException
         WallService.createComment(5, comment1)
     }

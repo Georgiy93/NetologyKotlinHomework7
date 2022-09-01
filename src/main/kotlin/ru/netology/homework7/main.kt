@@ -238,7 +238,6 @@ fun main() {
                     ", Индетификатор автора поста: " + post.ownerID +
                     ", $data " + "Количестов лайков: " + post.likes.count +
                     " Вложения " + post.attachments.contentToString() + "\n"
-
         )
     }
 
